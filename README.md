@@ -1,20 +1,17 @@
-![Alysides Header](https://github.com/VleppoOfficial/alysides/blob/main/alysides-header.png "Alysides Header")
+![GRMS Header](https://grms.pw/images/logo.png "GRMS Header")
 
-## Vleppo Alysides
-This repository hosts the Vleppo Alysides core blockchain software that is required to host all Komodo-based blockchains used by the [Vleppo Platform](https://vleppo.com/).
+## GRMS 
+This repository hosts the GRMS core blockchain software that is required to host all Komodo-based blockchains used by the [GRMS Platform](https://grms.pw/).
 
-All stable releases used in production / notary node environments are hosted in the 'main' branch. 
-- [https://github.com/VleppoOfficial/alysides](https://github.com/VleppoOfficial/alysides/tree/main)
+All stable releases used in production / notary node environments are hosted in the 'grms' branch. 
+- [https://github.com/GRMS-Coin/grms](https://github.com/GRMS-Coin/grms/tree/grms)
 
-To run Vleppo's non-production chains and receive latest updates that will be integrated to the 'main' branch in the next notary node season, use the 'beta' branch instead.
-- [https://github.com/VleppoOfficial/alysides](https://github.com/VleppoOfficial/alysides/tree/beta)
+GRMS is powered by the [Komodo Platform](https://komodoplatform.com/en), and contains code enhancements from the [Tokel Platform](https://github.com/TokelPlatform/tokel).
 
-Vleppo Alysides is powered by the [Komodo Platform](https://komodoplatform.com/en), and contains code enhancements from the [Tokel Platform](https://github.com/TokelPlatform/tokel).
-
-## List of Alysides Technologies
+## List of GRMS Technologies
 - All technologies from the main Komodo Platform codebase, such as:
   - Delayed Proof of Work (dPoW) - Additional security layer and Komodo's own consensus algorithm
-  - zk-SNARKs - Komodo Platform's privacy technology for shielded transactions (however, it is unused and inaccessible in any of Vleppo's chains)
+  - zk-SNARKs - Komodo Platform's privacy technology for shielded transactions (however, it is unused and inaccessible in any of GRMS chains)
   - CC - Custom Contracts to realize UTXO-based "smart contract" logic on top of blockchains
 - Enhancements inherited from the Tokel Platform codebase, such as:
   - Improvements to the Tokens & Assets CCs
@@ -23,8 +20,8 @@ Vleppo Alysides is powered by the [Komodo Platform](https://komodoplatform.com/e
 - Token Tags CC, a Komodo Custom Contract enabling amendable data logs attached to existing Tokens
 
 ## Installation
-In order to run any of Vleppo's Komodo-based blockchains as a full node, you must build the Alysides daemon and launch the specified blockchain through it.
-If you wish to run a production-grade Vleppo blockchain, make sure you are running it from the 'main' branch of this repository in order to avoid syncing issues.
+In order to run any of GRMS Komodo-based blockchains as a full node, you must build the GRMS daemon and launch the specified blockchain through it.
+If you wish to run a production-grade GRMS blockchain, make sure you are running it from the 'grms' branch of this repository in order to avoid syncing issues.
 
 #### Dependencies
 ```shell
@@ -34,8 +31,8 @@ sudo apt-get install build-essential pkg-config libc6-dev m4 g++-multilib autoco
 
 #### Linux
 ```shell
-git clone https://github.com/VleppoOfficial/alysides --branch main --single-branch
-cd alysides
+git clone https://github.com/GRMS-Coin/grms --branch grms --single-branch
+cd grms
 ./zcutil/fetch-params.sh
 ./zcutil/build.sh -j$(expr $(nproc) - 1)
 #This can take some time.
@@ -60,8 +57,8 @@ brew install protobuf
 brew install coreutils
 brew install wget
 # Clone the Alysides repo
-git clone https://github.com/VleppoOfficial/alysides --branch main --single-branch
-cd alysides
+git clone https://github.com/GRMS-Coin/grms --branch grms --single-branch
+cd grms
 ./zcutil/fetch-params.sh
 ./zcutil/build-mac.sh -j$(expr $(sysctl -n hw.ncpu) - 1)
 # This can take some time.
@@ -82,104 +79,80 @@ sudo update-alternatives --config x86_64-w64-mingw32-gcc
 sudo update-alternatives --config x86_64-w64-mingw32-g++
 # (configure to use POSIX variant)
 
-git clone https://github.com/VleppoOfficial/alysides --branch main --single-branch
-cd alysides
+git clone https://github.com/GRMS-Coin/grms --branch grms --single-branch
+cd grms
 ./zcutil/fetch-params.sh
 ./zcutil/build-win.sh -j$(expr $(nproc) - 1)
 #This can take some time.
 ```
 
-#### Launch Alysides
-Change to the Alysides src directory:
+#### Launch GRMS
+Change to the GRMS src directory:
 
 ```shell
-cd ~/alysides/src
+cd ~/grms/src
 ```
 
-Launch the Alysides chain command:
+Launch the GRMS chain command:
 
 ```shell
-./alysidesd &
+./grmsd &
 ```
 
-Running the alysidesd executable will launch the most up-to-date Vleppo blockchain. If you wish to run a specific blockchain that is not the default, refer to Vleppo Blockchain Specifics below.
+Running the grmsd executable will launch the most up-to-date GRMS blockchain. If you wish to run a specific blockchain that is not the default, refer to GRMS Blockchain Specifics below.
 
 Now wait for the chain to finish syncing. This might take while depending on your machine and internet connection. You can check check sync progress by using tail -f on the debug.log file in the blockchain's data directory. Double check the number of blocks you've downloaded with an explorer to verify you're up to the latest block.
 
-Alysides uses CryptoConditions that require launching the blockchain with the -pubkey parameter to work correctly. Once you have completed block download, you will need to create a new address or import your current address. After you have done that, you will need to stop the blockchain and launch it with the -pubkey parameter.
+GRMS uses CryptoConditions that require launching the blockchain with the -pubkey parameter to work correctly. Once you have completed block download, you will need to create a new address or import your current address. After you have done that, you will need to stop the blockchain and launch it with the -pubkey parameter.
 
 You can use the RPC below to create a new address or import a privkey you currently have.
 
 ```shell
-./alysides-cli getnewaddress
+./grms-cli getnewaddress
 ```
 
 ```shell
-./alysides-cli importprivkey
+./grms-cli importprivkey
 ```
 
 Once you have completed this, use the validateaddress RPC to find your associated pubkey.
 
 ```shell
-./alysides-cli validateaddress *INSERTYOURADDRESSHERE*
+./grms-cli validateaddress *INSERTYOURADDRESSHERE*
 ```
 
 Once you have written down your pubkey, stop the blockchain daemon.
 
 ```shell
-cd ~/alysides/src
-./alysides-cli stop
+cd ~/grms/src
+./grms-cli stop
 ```
 
 Wait a minute or so for the blockchain to stop, then relaunch the blockchain with the command below. Please remove the ** and replace them with the pubkey of the address you imported.
 
 ```shell
-cd ~/alysides/src
-./alysidesd -pubkey=**YOURPUBKEYHERE** &
+cd ~/grms/src
+./grmsd -pubkey=**YOURPUBKEYHERE** &
 ```
 
-You are now ready to use the Alysides software to its fullest extent.
+You are now ready to use the GRMS software to its fullest extent.
 
-## Vleppo Resources
-- Vleppo Website: [https://vleppo.com](https://vleppo.com)
-- Vleppo Discord: [Invitation](https://discord.gg/PdvqNjkWTd)
-- Vleppo Telegram: [Invitation](https://t.me/vleppospeaks)
-- Email: [support@vleppo.com](mailto:support@vleppo.com)
+## GRMS Resources
+- GRMS Website: [https://grms.pw](https://grms.pw)
+- GRMS Explorer: [Invitation](https://explorer.grms.pw)
+- GRMS MOBILE WALLET: [Invitation](https://atomicdex.io/en/mobile/)
+- GRMS DESKOP WALLET: [Invitation](https://atomicdex.io/en/desktop/)
+- GRMS Exchanges AtomicDex: [Invitation](https://atomicdex.io/)
+- GRMS Email: [support@grms.pw](mailto:support@grms.pw)
 
-## Vleppo Blockchain Specifics
-The following is a list of Komodo-based Vleppo blockchains that can be run with the Alysides software, alongside their attributes and exact launch parameters. The list will be updated over time as new blockchains are created for use in the Vleppo Platform.
+## GRMS Blockchain Specifics
 
-### VLCGLB1
-VLCGLB1 is a "beta" chain, being the first publicly available of its type. The VLCGLB1 coin holds no value, just like other VLC coins, as its primary purpose is testing and facilitating Custom Contract functionality for the Vleppo Application.
+- Max Supply: Approximately 120 million GRMS
+- Block Time: 30 seconds
+- Starting Block Reward (Era 3): 12-9-5 GRMS
+- Mining Algorithm: 50% PoW |50% PoS
 
-NOTE: VLCGLB1 must be run using komodod executables compiled from the 'legacy_v0.5' branch.
 
-```shell
--ac_name=VLCGLB1 -ac_supply=498000000 -ac_reward=1000000000 -ac_blocktime=120 -ac_cc=1 -ac_staked=100 -ac_halving=27600 -ac_decay=85000000 -ac_end=331200 -ac_public=1 -addnode=143.110.242.177 -addnode=143.110.254.96 -addnode=139.59.110.85 -addnode=139.59.110.86
-#Example launch command (remove the ** and replace them with the pubkey of the address you imported):
-./komodod -ac_name=VLCGLB1 -ac_supply=498000000 -ac_reward=1000000000 -ac_blocktime=120 -ac_cc=1 -ac_staked=100 -ac_halving=27600 -ac_decay=85000000 -ac_end=331200 -ac_public=1 -addnode=143.110.242.177 -addnode=143.110.254.96 -addnode=139.59.110.85 -addnode=139.59.110.86 -pubkey=**YOURPUBKEYHERE** & 
-```
-
-- Max Supply: Approximately 500 million VLC
-- Block Time: 120 seconds
-- Starting Block Reward (Era 1): 10 VLC
-- Block reward reduction time period: Every 27600 blocks following Era 1
-- Reduction amount: 15%
-- Mining Algorithm: 100% Proof-of-Stake
-
-### VLCGLB2
-VLCGLB2 is a "candidate" chain, running on current versions of Alysides. The VLCGLB2 coin holds no value, just like other VLC coins, as its primary purpose is facilitating Custom Contract functionality for the Vleppo Application and other offerings.
-
-```shell
--ac_name=VLCGLB2 -ac_supply=500000000 -ac_reward=1 -ac_blocktime=120 -ac_cc=1 -ac_ccenable=167,168,169,228,236,245 -ac_staked=100 -ac_end=1 -ac_public=1 -addnode=143.110.242.177 -addnode=143.110.254.96 -addnode=139.59.110.85 -addnode=139.59.110.86
-#Example launch command (remove the ** and replace them with the pubkey of the address you imported):
-./komodod -ac_name=VLCGLB2 -ac_supply=500000000 -ac_reward=1 -ac_blocktime=120 -ac_cc=1 -ac_ccenable=167,168,169,228,236,245 -ac_staked=100 -ac_end=1 -ac_public=1 -addnode=143.110.242.177 -addnode=143.110.254.96 -addnode=139.59.110.85 -addnode=139.59.110.86 -pubkey=**YOURPUBKEYHERE** & 
-```
-
-- Max Supply: Approximately 500 million VLC
-- Block Time: 120 seconds
-- Starting Block Reward: None
-- Mining Algorithm: 100% Proof-of-Stake
 
 ## License
 
