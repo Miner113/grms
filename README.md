@@ -1,3 +1,8 @@
+![GRMS cli build - Ubuntu 18.04](https://github.com/GRMS-Coin/grms/workflows/GRMS%20cli%20build%20-%20Ubuntu%2018.04/badge.svg)\
+![GRMS cli build - Ubuntu 20.04](https://github.com/GRMS-Coin/grms/workflows/GRMS%20cli%20build%20-%20Ubuntu%2020.04/badge.svg)\
+![GRMScli build - Windows cross compile 18.04](https://github.com/GRMS-Coin/grms/workflows/GRMS%20cli%20build%20-%20Windows%20cross%20compile%2018.04/badge.svg)\
+![GRMS cli build - Windows cross compile 20.04](https://github.com/GRMS-Coin/grms/workflows/GRMS%20cli%20build%20-%20Windows%20cross%20compile%2020.04/badge.svg)\
+![GRMS cli build - MacOS 10.15 Catalina](https://github.com/GRMS-Coin/grms/workflows/GRMS%20cli%20build%20-%20MacOS%2010.15%20Catalina/badge.svg)\
 ![GRMS Header](https://grms.pw/images/logo.png "GRMS Header")
 
 ## GRMS 
