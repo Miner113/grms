@@ -56,7 +56,7 @@ brew install binutils
 brew install protobuf
 brew install coreutils
 brew install wget
-# Clone the Alysides repo
+# Clone the GRMS repo
 git clone https://github.com/GRMS-Coin/grms --branch grms --single-branch
 cd grms
 ./zcutil/fetch-params.sh
@@ -147,7 +147,7 @@ You are now ready to use the GRMS software to its fullest extent.
 
 ## GRMS Blockchain Specifics
 
-- Max Supply: Approximately 120 million GRMS
+- Max Supply: 120 million GRMS
 - Block Time: 30 seconds
 - Starting Block Reward (Era 3): 12-9-5 GRMS
 - Mining Algorithm: 50% PoW |50% PoS
