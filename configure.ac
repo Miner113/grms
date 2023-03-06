@@ -9,7 +9,7 @@ define(_ZC_BUILD_VAL, m4_if(m4_eval(_CLIENT_VERSION_BUILD < 25), 1, m4_incr(_CLI
 define(_CLIENT_VERSION_SUFFIX, m4_if(m4_eval(_CLIENT_VERSION_BUILD < 25), 1, _CLIENT_VERSION_REVISION-beta$1, m4_eval(_CLIENT_VERSION_BUILD < 50), 1, _CLIENT_VERSION_REVISION-rc$1, m4_eval(_CLIENT_VERSION_BUILD == 50), 1, _CLIENT_VERSION_REVISION, _CLIENT_VERSION_REVISION-$1)))
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2022)
-AC_INIT([alysides-cli],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_SUFFIX(_ZC_BUILD_VAL)],[https://github.com/VleppoOfficial/alysides/issues],[alysides-cli])
+AC_INIT([grms-cli],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_SUFFIX(_ZC_BUILD_VAL)],[https://github.com/GRMS-Coin/grms/issues],[grms-cli])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_HEADERS([src/config/bitcoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
@@ -18,11 +18,11 @@ AC_CONFIG_MACRO_DIR([build-aux/m4])
 dnl komodo codebase version
 define(_KOMODO_VERSION, 60000)
 
-dnl alysides codebase version
-define(_ALYSIDES_VERSION, 30300)
+dnl grms codebase version
+define(_GRMS_VERSION, 30300)
 
 AC_DEFINE(KOMODO_VERSION, _KOMODO_VERSION, [Komodo Version])
-AC_DEFINE(ALYSIDES_VERSION, _ALYSIDES_VERSION, [Alysides Version])
+AC_DEFINE(GRMS_VERSION, _GRMS_VERSION, [GRMS Version])
 
 
 BITCOIN_DAEMON_NAME=komodod
