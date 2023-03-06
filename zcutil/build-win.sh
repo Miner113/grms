@@ -29,11 +29,11 @@ cd $BASE_DIR
 
 ./autogen.sh
 CONFIG_SITE=$BASE_DIR/depends/$HOST/share/config.site CXXFLAGS="-DPTW32_STATIC_LIB -DCURL_STATICLIB -DCURVE_ALT_BN128 -fopenmp -pthread" ./configure --prefix=$PREFIX --host=$HOST --enable-static --disable-shared "$WEBSOCKETS_ARG" \
-  --with-custom-bin=yes CUSTOM_BIN_NAME=alysides CUSTOM_BRAND_NAME=Alysides \
-  CUSTOM_SERVER_ARGS="'-ac_name=VLCGLB2 -ac_supply=500000000 -ac_reward=1 -ac_blocktime=120 -ac_cc=1 -ac_ccenable=167,168,169,228,236,245 -ac_staked=100 -ac_end=1 -ac_public=1 -addnode=143.110.242.177 -addnode=143.110.254.96 -addnode=139.59.110.85 -addnode=139.59.110.86 -nspv_msg=1'" \
-  CUSTOM_CLIENT_ARGS='-ac_name=VLCGLB2'
+  --with-custom-bin=yes CUSTOM_BIN_NAME=grms CUSTOM_BRAND_NAME=GRMS \
+  CUSTOM_SERVER_ARGS="'-ac_name=GRMS -ac_supply=100000 -ac_reward=1200000000,900000000,500000000 -ac_end=180700,900000,3600000 -ac_algo=verushash -ac_adaptivepow=6 -ac_eras=3 -ac_blocktime=30 -ac_veruspos=50 -ac_cbmaturity=3 -ac_cc=333 -ac_sapling=1 -addnode=91.231.187.163 -addnode=91.231.187.130 -addnode=91.231.187.105 -addnode=91.231.187.20 -addnode=91.231.187.113 -addnode=91.231.187.115 -addnode=91.231.187.116 -addnode=91.231.187.120 -nspv_msg=1'" \
+  CUSTOM_CLIENT_ARGS='-ac_name=GRMS'
 sed -i 's/-lboost_system-mt /-lboost_system-mt-s /' configure 
   
 cd src/
-# note: to build alysidesd, alysides-cli it should not exist 'komodod.exe komodo-cli.exe' param here:
+# note: to build grmsd, grms-cli it should not exist 'komodod.exe komodo-cli.exe' param here:
 CC="${CC} -g " CXX="${CXX} -g " make V=1    
